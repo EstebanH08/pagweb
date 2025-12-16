@@ -3,379 +3,289 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bolsa de Trabajo CS - UNSA</title>
+    <title>CS Hub - UNSA | Oportunidades y Movilidad</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root {
-            --primary-color: #721223; /* Color Guinda Institucional */
-            --secondary-color: #2c3e50;
-            --accent-color: #f1c40f;
-            --light-bg: #f8f9fa;
-            --text-color: #333;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--light-bg);
-            color: var(--text-color);
-        }
-
-        /* Header */
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        header h1 {
-            font-size: 1.5rem;
-            margin: 0;
-        }
-
-        header span {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        /* Hero Section */
-        .hero {
-            background-color: white;
-            padding: 2rem;
-            text-align: center;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .hero h2 {
-            color: var(--secondary-color);
-        }
-
-        .search-bar {
-            margin-top: 1rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            display: flex;
-            gap: 10px;
-        }
-
-        input[type="text"] {
-            flex-grow: 1;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-
-        /* Insights Section (Based on Document Statistics) */
-        .insights {
-            padding: 1rem 2rem;
-            background-color: #e9ecef;
-            text-align: center;
-        }
-        
-        .tag-cloud {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-        .tag {
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .tag:hover {
-            background-color: var(--primary-color);
-        }
-
-        /* Jobs Grid */
-        .container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-
-        .jobs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 20px;
-        }
-
-        .job-card {
-            background: white;
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            transition: transform 0.2s, box-shadow 0.2s;
-            border-left: 5px solid var(--primary-color);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .job-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .job-title {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .job-company {
-            font-weight: 600;
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .job-details {
-            font-size: 0.9rem;
-            color: #555;
-            margin-bottom: 1rem;
-        }
-
-        .job-skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px;
-            margin-bottom: 1rem;
-        }
-
-        .skill-badge {
-            background-color: #f1f1f1;
-            color: #333;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            border: 1px solid #ddd;
-        }
-
-        .apply-btn {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 10px;
-            width: 100%;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            text-align: center;
-            text-decoration: none;
-        }
-
-        .apply-btn:hover {
-            background-color: #5a0e1c;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--secondary-color);
-            color: white;
-            text-align: center;
-            padding: 1.5rem;
-            margin-top: 3rem;
-            font-size: 0.8rem;
-        }
-
+        .unsa-red { color: #8a1c1c; }
+        .bg-unsa-red { background-color: #8a1c1c; }
+        .tab-active { border-bottom: 2px solid #8a1c1c; color: #8a1c1c; font-weight: bold; }
     </style>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-800 font-sans">
 
-    <header>
-        <div>
-            <h1>CC Jobs | UNSA</h1>
-            <span>Bolsa de Trabajo para Ciencia de la Computación</span>
-        </div>
-        <div>
-            <span>Arequipa - 2025</span>
-        </div>
-    </header>
-
-    <div class="hero">
-        <h2>Encuentra tu próximo desafío profesional</h2>
-        <p>Oportunidades laborales filtradas específicamente para el perfil de Computer Science.</p>
-        
-        <div class="search-bar">
-            <input type="text" id="searchInput" placeholder="Buscar por cargo, tecnología (ej. Python, SQL) o empresa..." onkeyup="filterJobs()">
-        </div>
-    </div>
-
-    <div class="insights">
-        <p><strong>Habilidades más demandadas (Región Sur 2025):</strong></p>
-        <div class="tag-cloud">
-            <span class="tag" onclick="filterByTag('SQL')">SQL / Bases de Datos</span>
-            <span class="tag" onclick="filterByTag('Python')">Python</span>
-            <span class="tag" onclick="filterByTag('Soporte')">Soporte Técnico</span>
-            <span class="tag" onclick="filterByTag('Inglés')">Inglés</span>
-            <span class="tag" onclick="filterByTag('Web')">Desarrollo Web</span>
-            <span class="tag" onclick="filterByTag('Power BI')">Power BI</span>
-        </div>
-    </div>
-
-    <div class="container">
-        <div id="jobsContainer" class="jobs-grid">
+    <nav class="bg-white shadow-md fixed w-full z-10 top-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <i class="fa-solid fa-laptop-code text-2xl unsa-red mr-2"></i>
+                    <span class="font-bold text-xl tracking-tight">CS Opportunities <span class="unsa-red">Hub</span></span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#inicio" class="hover:text-red-700">Inicio</a>
+                    <a href="#tramites" class="hover:text-red-700">Trámites (Ranking)</a>
+                    <a href="#becas" class="hover:text-red-700">Becas & Movilidad</a>
+                    <a href="#laboral" class="hover:text-red-700">Mercado Laboral</a>
+                </div>
             </div>
-        <p id="noResults" style="text-align: center; display: none; margin-top: 20px;">No se encontraron ofertas que coincidan con tu búsqueda.</p>
+        </div>
+    </nav>
+
+    <div id="inicio" class="pt-24 pb-12 bg-gray-100 text-center px-4">
+        <h1 class="text-4xl font-bold mb-4">Tu futuro en <span class="unsa-red">Ciencia de la Computación</span></h1>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            Centralizamos la información dispersa sobre becas, intercambios (Purdue, RPU) y el mercado laboral real de Arequipa para estudiantes de la UNSA.
+        </p>
+        <div class="mt-8 flex justify-center gap-4">
+            <a href="#tramites" class="bg-unsa-red text-white px-6 py-3 rounded-lg shadow hover:bg-red-800 transition">
+                <i class="fa-solid fa-file-contract mr-2"></i> Cómo sacar mi Ranking
+            </a>
+            <a href="#laboral" class="bg-white text-gray-800 border border-gray-300 px-6 py-3 rounded-lg shadow hover:bg-gray-50 transition">
+                Ver empleos actuales
+            </a>
+        </div>
     </div>
 
-    <footer>
-        <p>Basado en el Informe de Investigación: "Becas, intercambios, movilidad y campo laboral para el estudiante y profesional de Ciencia de la Computación" (UNSA, 2025).</p>
-        <p>Desarrollado para fines académicos.</p>
+    <section id="tramites" class="max-w-5xl mx-auto py-16 px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900">Guía de Trámites: Certificado de 5to Superior</h2>
+            <p class="mt-2 text-gray-600">Requisito indispensable para becas. Información validada por la Dirección de Servicios Académicos (DSA).</p>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
+            <div class="flex border-b">
+                <button onclick="switchTab('virtual')" id="btn-virtual" class="w-1/2 py-4 text-center hover:bg-gray-50 tab-active transition">
+                    <i class="fa-solid fa-wifi mr-2"></i> Trámite Virtual
+                </button>
+                <button onclick="switchTab('presencial')" id="btn-presencial" class="w-1/2 py-4 text-center hover:bg-gray-50 transition">
+                    <i class="fa-solid fa-building mr-2"></i> Trámite Presencial
+                </button>
+            </div>
+            
+            <div class="p-8">
+                <div id="content-virtual">
+                    <h3 class="font-bold text-xl mb-4">Proceso 100% Online</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="bg-blue-100 text-blue-800 font-bold px-2 py-1 rounded mr-3">1</span>
+                            <p>Realiza el pago de <strong>S/ 10.00</strong> (Constancia de Ranking) a través de <strong>UNSApay</strong> o Caja UNSA.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="bg-blue-100 text-blue-800 font-bold px-2 py-1 rounded mr-3">2</span>
+                            <p>Redacta una solicitud dirigida al <strong>DSA (Dirección de Servicios Académicos)</strong>.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="bg-blue-100 text-blue-800 font-bold px-2 py-1 rounded mr-3">3</span>
+                            <p>Envía un correo al DSA adjuntando: La solicitud y el recibo de pago digital.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="bg-green-100 text-green-800 font-bold px-2 py-1 rounded mr-3">Final</span>
+                            <p>Una vez validado, el certificado llegará a tu correo institucional.</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="content-presencial" class="hidden">
+                    <h3 class="font-bold text-xl mb-4">Proceso en Campus</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="bg-orange-100 text-orange-800 font-bold px-2 py-1 rounded mr-3">1</span>
+                            <p>Paga <strong>S/ 10.00</strong> en Caja UNSA (Concepto: Constancia de Ranking).</p>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="bg-orange-100 text-orange-800 font-bold px-2 py-1 rounded mr-3">2</span>
+                            <p>Acércate a <strong>"Casa Verde"</strong> (Oficina DSA).</p>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="bg-orange-100 text-orange-800 font-bold px-2 py-1 rounded mr-3">3</span>
+                            <p>Presenta en ventanilla tu solicitud física y el recibo de pago original.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="becas" class="bg-gray-50 py-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-10">Oportunidades de Movilidad e Intercambio</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="scholarships-container">
+                </div>
+        </div>
+    </section>
+
+    <section id="laboral" class="max-w-6xl mx-auto py-16 px-4">
+        <div class="flex justify-between items-end mb-8">
+            <div>
+                <h2 class="text-3xl font-bold">Observatorio Laboral Arequipa (2025)</h2>
+                <p class="text-gray-600">Basado en ofertas reales para Ciencia de la Computación, Sistemas e Informática.</p>
+            </div>
+            <div class="bg-white p-2 rounded border shadow-sm hidden md:block">
+                <span class="text-xs font-bold uppercase text-gray-400 block mb-1">Tecnologías más demandadas</span>
+                <div class="flex gap-2">
+                    <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded font-bold">SQL</span>
+                    <span class="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs rounded font-bold">Python</span>
+                    <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded font-bold">Power BI</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6" id="jobs-container">
+            </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-8 text-center">
+        <p class="text-gray-400">Proyecto de Responsabilidad Social y Extensión Universitaria</p>
+        <p class="font-bold">Facultad de Ciencia de la Computación - UNSA</p>
+        <p class="text-sm mt-2 text-gray-500">Basado en la investigación: "Becas, intercambios, movilidad y campo laboral"</p>
+        <p class="text-sm mt-2 text-gray-500">Preentado por: Yamil D.Ticona</p>
     </footer>
 
     <script>
-        // DATA: Extraída directamente del documento PDF proporcionado (Sección 4)
-        const jobsData = [
+        // --- BASE DE DATOS LOCAL (Basada en tu documento) ---
+        const scholarships = [
             {
-                title: "Especialista de Datos (GCP–AWS–Azure)",
-                company: "Overall Strategy",
-                location: "Arequipa",
-                type: "Tiempo Completo",
-                skills: ["SQL", "Python", "Power BI", "Excel", "Data Engineering"],
-                description: "Experiencia de 2 años en Data Engineering. Conocimiento de arquitecturas Cloud.",
-                source: "Documento TIF - [cite: 422]"
+                title: "Universidad de Newcastle",
+                type: "Internacional (Australia)",
+                description: "Para estudiantes de Sudamérica. Descuento de hasta 10,000 AUD en matrícula. Incluye Ciencia de Datos e IA.",
+                req: "Pasaporte, Inglés, Secundaria completa o Licenciatura.",
+                tag: "Pregrado y Maestría"
             },
             {
-                title: "Desarrollador Full Stack",
-                company: "Computrabajo (Confidencial)",
-                location: "Zona Sur",
-                type: "Tiempo Completo",
-                skills: ["Next.js", "Java", "Python", "React.js", "PostgreSQL", "Git"],
-                description: "Frontend y Backend intermedio. Manejo de bases de datos y servicios Cloud (Lambdas, API Gateway).",
-                source: "Documento TIF - [cite: 470]"
+                title: "Beca Alianza del Pacífico",
+                type: "Intercambio (Latam)",
+                description: "Movilidad a Chile, Colombia o México. Perú tiene 225 cupos disponibles.",
+                req: "Ciclo 8-12, Tercio Superior, Idioma básico según destino.",
+                tag: "PRONABEC"
             },
             {
-                title: "Programador Odoo Senior",
-                company: "Insight Consultoría",
-                location: "Arequipa",
-                type: "Senior",
-                skills: ["Python", "PostgreSQL", "Odoo", "QWeb", "Inglés Técnico"],
-                description: "Desarrollo y personalización de módulos complejos en Odoo. Integración de sistemas.",
-                source: "Documento TIF - "
+                title: "Red Peruana de Universidades (RPU)",
+                type: "Nacional",
+                description: "Intercambio en PUCP, San Marcos, UNSAAC. Incluye comedor universitario si hay bajos recursos.",
+                req: "Matrícula vigente, Ser alumno regular, 5to Superior.",
+                tag: "Movilidad Nacional"
             },
             {
-                title: "Practicante Pre Profesional de Información",
-                company: "BCP",
-                location: "Arequipa / Remoto",
-                type: "Prácticas",
-                skills: ["Excel Avanzado", "Power BI", "SQL Server", "Programación"],
-                description: "Estudiante de 7mo u 8vo semestre. Apoyo en análisis de información y gestión de datos.",
-                source: "Documento TIF - [cite: 414]"
+                title: "PILA",
+                type: "Internacional (Latam)",
+                description: "Programa de Intercambio Académico Latinoamericano. Convenios recíprocos con universidades de la región.",
+                req: "Estudiantes de Pregrado.",
+                tag: "Convenio UNSA"
             },
-            {
-                title: "Docentes de Informática y Robótica",
-                company: "SENATI",
-                location: "Arequipa",
-                type: "Docencia",
-                skills: ["Python", "Arduino", "Raspberry Pi", "IA", "LEGO Mindstorms"],
-                description: "Programación en bloques y código. Proyectos con Arduino y ESP32.",
-                source: "Documento TIF - "
-            },
-            {
-                title: "Analista Programador",
-                company: "FEMACO",
-                location: "Arequipa",
-                type: "Egresado",
-                skills: ["C#", "Visual Studio", "SQL Server", "ERP", "IA"],
-                description: "Manejo de frontend y backend en C#. Deseable experiencia en integración SAP.",
-                source: "Documento TIF - [cite: 447]"
-            },
-            {
-                title: "Asistente de Automatización",
-                company: "Embotelladora San Miguel",
-                location: "Arequipa",
-                type: "Junior",
-                skills: ["Power Automate", "SQL", "Scrum", "Bases de Datos"],
-                description: "Mantenimiento y desarrollo informático. Conocimiento de metodologías ágiles.",
-                source: "Documento TIF - [cite: 438]"
-            },
-            {
-                title: "Ingeniero de Operaciones",
-                company: "Adecco Perú S.A.",
-                location: "Sur de Perú",
-                type: "Tiempo Completo",
-                skills: ["PostgreSQL", "MongoDB", "Ruby", "React JS", "Java", "Python"],
-                description: "Gestión de datos y desarrollo. Deseable inglés.",
-                source: "Documento TIF - [cite: 467]"
+             {
+                title: "Purdue University",
+                type: "Investigación",
+                description: "Convenio Nexus Arequipa para proyectos de agua, energía y medio ambiente.",
+                req: "Perfil investigador.",
+                tag: "EE.UU."
             }
         ];
 
-        const container = document.getElementById('jobsContainer');
-        const searchInput = document.getElementById('searchInput');
-        const noResults = document.getElementById('noResults');
-
-        // Función para renderizar tarjetas
-        function renderJobs(jobs) {
-            container.innerHTML = '';
-            
-            if (jobs.length === 0) {
-                noResults.style.display = 'block';
-                return;
-            } else {
-                noResults.style.display = 'none';
+        const jobs = [
+            {
+                role: "Especialista de Datos (GCP-AWS)",
+                company: "Overall Strategy",
+                skills: ["SQL", "Python", "Power BI", "Cloud Architect"],
+                desc: "Experiencia de 2 años a más en Data Engineering.",
+                location: "Arequipa"
+            },
+            {
+                role: "Practicante Pre-Prof. Información",
+                company: "BCP",
+                skills: ["Excel Avanzado", "Power BI", "SQL Server", "Programación"],
+                desc: "Para estudiantes de 7mo y 8vo ciclo.",
+                location: "Remoto / Arequipa"
+            },
+            {
+                role: "Programador Odoo Senior",
+                company: "Insight Consultoría",
+                skills: ["Python", "PostgreSQL", "Odoo Framework", "Inglés Técnico"],
+                desc: "Creación y personalización de módulos complejos backend/frontend.",
+                location: "Arequipa"
+            },
+            {
+                role: "Desarrollador Fullstack",
+                company: "Empresa Confidencial",
+                skills: ["Next.js", "Node.js", "Java", "MongoDB", "Git"],
+                desc: "Manejo de servicios cloud (Lambdas) y APIs REST/GraphQL.",
+                location: "Tacna/Remoto"
+            },
+             {
+                role: "Practicante Unidad Registral",
+                company: "SUNARP",
+                skills: ["Ofimática", "Inglés Básico"],
+                desc: "Convocatoria N° 032-2025. Oportunidad en el sector público.",
+                location: "Arequipa"
             }
+        ];
 
-            jobs.forEach(job => {
-                const card = document.createElement('article');
-                card.className = 'job-card';
-                
-                // Generar HTML de las habilidades (badges)
-                const skillsHtml = job.skills.map(skill => `<span class="skill-badge">${skill}</span>`).join('');
+        // --- FUNCIONES DE RENDERIZADO ---
 
-                card.innerHTML = `
-                    <div>
-                        <div class="job-title">${job.title}</div>
-                        <div class="job-company">🏢 ${job.company} | 📍 ${job.location}</div>
-                        <div class="job-skills">${skillsHtml}</div>
-                        <div class="job-details">${job.description}</div>
+        function loadScholarships() {
+            const container = document.getElementById('scholarships-container');
+            let html = '';
+            scholarships.forEach(s => {
+                html += `
+                <div class="bg-white p-6 rounded-lg shadow border-l-4 border-red-800 hover:shadow-xl transition">
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="text-xs font-bold text-red-800 bg-red-100 px-2 py-1 rounded uppercase">${s.type}</span>
                     </div>
-                    <div>
-                        <div style="font-size: 0.75rem; color: #999; margin-bottom: 5px;">Fuente: ${job.source}</div>
-                        <button class="apply-btn">Ver Detalles</button>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">${s.title}</h3>
+                    <p class="text-sm text-gray-600 mb-4">${s.description}</p>
+                    <div class="bg-gray-50 p-3 rounded text-sm">
+                        <strong>Requisitos:</strong> ${s.req}
                     </div>
-                `;
-                container.appendChild(card);
+                </div>`;
             });
+            container.innerHTML = html;
         }
 
-        // Función de filtrado
-        function filterJobs() {
-            const query = searchInput.value.toLowerCase();
-            const filtered = jobsData.filter(job => {
-                return job.title.toLowerCase().includes(query) || 
-                       job.company.toLowerCase().includes(query) ||
-                       job.skills.some(skill => skill.toLowerCase().includes(query));
+        function loadJobs() {
+            const container = document.getElementById('jobs-container');
+            let html = '';
+            jobs.forEach(j => {
+                // Generar etiquetas de skills
+                let skillsHtml = j.skills.map(skill => 
+                    `<span class="inline-block bg-gray-200 text-gray-700 rounded-full px-3 py-1 text-xs font-semibold mr-2 mb-2">#${skill}</span>`
+                ).join('');
+
+                html += `
+                <div class="bg-white p-6 rounded-lg shadow hover:border-gray-400 border border-transparent transition">
+                    <div class="flex justify-between">
+                        <h3 class="text-lg font-bold text-gray-900">${j.role}</h3>
+                        <span class="text-sm text-gray-500"><i class="fa-solid fa-location-dot"></i> ${j.location}</span>
+                    </div>
+                    <p class="text-indigo-600 font-semibold text-sm mb-3">${j.company}</p>
+                    <p class="text-sm text-gray-600 mb-4">${j.desc}</p>
+                    <div class="mb-2">
+                        ${skillsHtml}
+                    </div>
+                </div>`;
             });
-            renderJobs(filtered);
+            container.innerHTML = html;
         }
 
-        // Función para filtrar por click en etiquetas
-        function filterByTag(tag) {
-            searchInput.value = tag;
-            filterJobs();
+        // --- LÓGICA DE TABS (Trámites) ---
+        function switchTab(tabName) {
+            // Ocultar contenidos
+            document.getElementById('content-virtual').classList.add('hidden');
+            document.getElementById('content-presencial').classList.add('hidden');
+            
+            // Resetear botones
+            document.getElementById('btn-virtual').classList.remove('tab-active');
+            document.getElementById('btn-presencial').classList.remove('tab-active');
+
+            // Activar seleccionado
+            document.getElementById(`content-${tabName}`).classList.remove('hidden');
+            document.getElementById(`btn-${tabName}`).classList.add('tab-active');
         }
 
-        // Carga inicial
-        renderJobs(jobsData);
-
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', () => {
+            loadScholarships();
+            loadJobs();
+        });
     </script>
 </body>
 </html>
